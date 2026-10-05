@@ -6,7 +6,6 @@
 
 It uses LinkedIn's **official OAuth API**, has **zero third-party dependencies**, and puts a human-in-the-loop safety layer in front of every write.
 
-[![tests](https://github.com/PeterEkwere/linkedin-mcp/actions/workflows/tests.yml/badge.svg)](https://github.com/PeterEkwere/linkedin-mcp/actions/workflows/tests.yml)
 ![python](https://img.shields.io/badge/python-3.9%2B-blue)
 ![license](https://img.shields.io/badge/license-MIT-green)
 

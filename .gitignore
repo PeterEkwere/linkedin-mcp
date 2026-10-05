@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+.env
+.DS_Store
+# Never commit tokens or local state
+.linkedin-mcp/
+token.json

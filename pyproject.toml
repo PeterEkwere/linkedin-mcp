@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "linkedin-mcp"
+version = "0.1.0"
+description = "Approval-gated LinkedIn tools for any MCP-compatible AI agent (Claude, Cursor, custom agents)."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Peter Udeme Ekwere" }]
+keywords = ["mcp", "model-context-protocol", "linkedin", "ai-agents", "llm", "human-in-the-loop"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/PeterEkwere/linkedin-mcp"
+Issues = "https://github.com/PeterEkwere/linkedin-mcp/issues"
+
+[project.scripts]
+linkedin-mcp = "linkedin_mcp.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

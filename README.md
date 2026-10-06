@@ -193,11 +193,37 @@ python -m unittest discover -s tests -v
 
 The tests cover request building and validation, the proposal lifecycle (exact-match, single-use, expiry, tamper detection, no-retry on uncertain outcomes, daily cap), private storage, OAuth state checks, and the MCP handshake including elicitation approve and decline flows.
 
+## Browser module (optional, self-hosted)
+
+LinkedIn's open API cannot read your inbox, so there is a separate opt-in module
+that drives a real Chrome session logged in as you and reads your own messages.
+You log in once through a VNC screen reached over an SSH tunnel, and the session
+is saved in a local Chrome profile.
+
+```bash
+pip install "linkedin-mcp[browser] @ git+https://github.com/PeterEkwere/linkedin-mcp"
+linkedin-mcp-browser worker        # owns Chrome, listens on a local socket
+linkedin-mcp-browser login         # one-time login over an SSH-tunnelled VNC screen
+linkedin-mcp-browser mcp           # MCP front end your agent connects to
+```
+
+Tools (all read-only): `linkedin_browser_status`, `linkedin_list_conversations`,
+`linkedin_read_conversation`.
+
+Full VPS setup, the VNC login flow, a systemd service and the security notes are
+in [docs/VPS_DEPLOYMENT.md](docs/VPS_DEPLOYMENT.md).
+
+> **Heads up:** automating the LinkedIn website is against LinkedIn's User
+> Agreement and can get your account restricted. Use it only on your own account,
+> at low volume. This module does not try to defeat bot detection, and it is not
+> for scraping people at scale or for bulk outreach. Sending messages is
+> deliberately not part of it; posting stays in the approval-gated official-API
+> server above.
+
 ## Roadmap
 
 - Streamable HTTP transport for remote and hosted agents
 - Image and document posts
-- Optional research and career-tracking module (opt-in, clearly separated from the official API)
 
 ## Background
 

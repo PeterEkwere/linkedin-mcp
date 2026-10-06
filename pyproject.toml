@@ -19,12 +19,16 @@ classifiers = [
 ]
 dependencies = []
 
+[project.optional-dependencies]
+browser = ["seleniumbase>=4.0"]
+
 [project.urls]
 Homepage = "https://github.com/PeterEkwere/linkedin-mcp"
 Issues = "https://github.com/PeterEkwere/linkedin-mcp/issues"
 
 [project.scripts]
 linkedin-mcp = "linkedin_mcp.cli:main"
+linkedin-mcp-browser = "linkedin_mcp.browser:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
